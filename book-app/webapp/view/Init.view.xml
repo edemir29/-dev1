@@ -1,0 +1,57 @@
+<mvc:View controllerName="ZUXEXP01.bookapp.controller.Init"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+    <content>
+        <FlexBox direction='Row' alignItems="Center" alignContent="SpaceBetween" class='sapUiMediumMargin' >
+        <!-- <Label text="{i18n>name}" class="sapUiSmallMarginEnd"/>
+        <Input id="Id" value="{initialViewModel>/newList>Id}" />
+        <Label text="" class="sapUiSmallMarginEnd"/>
+        <Label text="{i18n>due}" class="sapUiSmallMarginEnd" />
+        <Input type="Date" value="{initialViewModel>/newList>TodoDate}"/>
+        <Label text="" class="sapUiSmallMarginEnd"/> -->
+        <Button type="Accept" text="Create" id="buttonAddTask" press="onPressCreateItem"/>
+        </FlexBox>
+        <Table noDataText="No data" id="listTodo" items="{initialViewModel>/itemList}">
+						<headerToolbar>
+							<Toolbar>
+								<Title text="Todo List"/>
+								<ToolbarSpacer/>
+							</Toolbar>
+						</headerToolbar>
+						<columns>
+							<Column>
+								<Text text="ID"></Text>
+							</Column>
+							<Column>
+								<Text text="Item"/>
+							</Column>
+							<Column>
+								<Text text="DueDate"/>
+							</Column>
+							<Column>
+								<Text text="CompletionDate"/>
+							</Column>
+							<Column>
+								<Text text="Done"/>
+							</Column> 
+							<Column>
+								<Text text="Delete"/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem>
+								<cells>
+									<Text text="{path:'initialViewModel>Id'}"/>
+									<Text text="{path:'initialViewModel>Todo'}"/>
+									<Text text="{path:'initialViewModel>TodoDate',type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'yyyy-MM-ddTHH:mm:ss' }}"></Text>
+									<Text text="{path:'initialViewModel>CompletionDate',type: 'sap.ui.model.type.Date', formatOptions: { pattern: 'yyyy-MM-ddTHH:mm:ss' }}"/>
+									<Button text="Done" type="Accept" press="onDone"></Button>
+									<Button text="Delete" type="Reject" press="onDelete"></Button>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+    </content>
+    </Page>
+</mvc:View>
